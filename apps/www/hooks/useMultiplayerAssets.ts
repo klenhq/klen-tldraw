@@ -32,7 +32,7 @@ export function useMultiplayerAssets() {
 
       // if (!upload.ok) return false
 
-      return url + '/' + filename
+      return 'url' + '/' + filename
     },
     []
   )
