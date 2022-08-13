@@ -1,7 +1,7 @@
 import { Amplify } from 'aws-amplify'
 import Head from 'next/head'
 import type React from 'react'
-import { AuthConfig, S3Config } from '~services/aws/config'
+import awsmobile from '../aws-exports'
 import '~styles/globals.css'
 import { init } from '~utils/sentry'
 import useGtag from '~utils/useGtag'
@@ -16,12 +16,7 @@ const IMAGE = 'https://tldraw.com/social-image.png'
 function MyApp({ Component, pageProps }: any) {
   useGtag()
 
-  Amplify.configure({
-    Auth: AuthConfig,
-    Storage: S3Config,
-    ssr: true,
-  })
-
+  Amplify.configure({ ...awsmobile, ssr: true })
   return (
     <>
       <Head>
